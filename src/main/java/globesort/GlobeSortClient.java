@@ -56,10 +56,10 @@ public class GlobeSortClient {
         System.out.println("Sorted array");
         System.out.println(values.length);
 
-        long applicationThroughput = (long)(sortEndTime - sortStartTime)/values.length;
+        long applicationThroughput = (sortEndTime - sortStartTime);
         System.out.println("Application Throughput (in ms): "+ applicationThroughput);
-        long sortTime = (long) response.getTime()/values.length;
-        System.out.println("One-way Network Throughput (in ms): "+ (applicationThroughput-sortTime)/2);
+        long sortTime = response.getTime();
+        System.out.println("Both-way Network Throughput (in ms): "+ (applicationThroughput-sortTime));
     }
 
     public void shutdown() throws InterruptedException {
