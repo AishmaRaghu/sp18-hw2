@@ -54,6 +54,7 @@ public class GlobeSortClient {
         IntArray response = serverStub.sortIntegers(request);
         long sortEndTime = System.currentTimeMillis();
         System.out.println("Sorted array");
+        System.out.println(values.length);
 
         long applicationThroughput = (long)(sortEndTime - sortStartTime)/values.length;
         System.out.println("Application Throughput (in ms): "+ applicationThroughput);
