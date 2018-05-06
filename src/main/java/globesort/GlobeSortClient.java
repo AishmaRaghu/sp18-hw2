@@ -51,17 +51,15 @@ public class GlobeSortClient {
         System.out.println("Requesting server to sort array");
         IntArray request = IntArray.newBuilder().addAllValues(Arrays.asList(values)).build();
         long sortStartTime = System.currentTimeMillis();
-        System.out.println(sortStartTime);
         IntArray response = serverStub.sortIntegers(request);
         long sortEndTime = System.currentTimeMillis();
-        System.out.println(sortEndTime);
         System.out.println("Sorted array");
         System.out.println(values.length);
 
         long applicationThroughput = (sortEndTime - sortStartTime);
-        System.out.println("Application Throughput (in ms): "+ applicationThroughput);
+        System.out.println("Application Throughput (in ms): "+ values.length/applicationThroughput);
         long sortTime = response.getTime();
-        System.out.println("Both-way Network Throughput (in ms): "+ (applicationThroughput-sortTime));
+        System.out.println("Both-way Network Throughput (in ms): "+ values.length/(applicationThroughput-sortTime));
     }
 
     public void shutdown() throws InterruptedException {
