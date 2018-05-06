@@ -57,8 +57,10 @@ public class GlobeSortClient {
         System.out.println(values.length);
 
         long applicationThroughput = (sortEndTime - sortStartTime);
+        System.out.println("Total time:" + applicationThroughput);
         System.out.println("Application Throughput (in ms): "+ values.length/applicationThroughput);
         long sortTime = response.getTime();
+        System.out.println("Total sort time:" + sortTime);
         System.out.println("Both-way Network Throughput (in ms): "+ values.length/(applicationThroughput-sortTime));
     }
 
